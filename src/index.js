@@ -49,5 +49,8 @@ function start(client) {
   });
 }
 
-console.log("teste1");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  onsole.log(`Our app is running on port ${ PORT }`);
+});
 
