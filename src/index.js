@@ -1,5 +1,6 @@
 const express = require('express');
 const venom = require('venom-bot');
+const apisouce = require('apisauce');
 
 venom
   .create({
@@ -45,6 +46,28 @@ function start(client) {
         .catch((erro) => {
           console.error('Error when sending: ', erro); //return object error
         });
+    }
+
+    if (message.body === 'teste' && message.isGroupMsg === false) {
+
+      const api = apisouce.create({
+          baseURL: 'https://chatbot-whatsapp-lindomar.herokuapp.com' //ip from machine
+      });
+
+      api.get('/webhook').then(resp => {
+        console.log(resp.problem);
+        console.log(resp.data);
+        console.log('dentro');
+        client
+        .sendText(message.from, resp.data)
+        .then((result) => {
+          console.log('Result: ', result); //return object success
+        })
+        .catch((erro) => {
+          console.error('Error when sending: ', erro); //return object error
+        });
+      });
+       
     }
   });
 }

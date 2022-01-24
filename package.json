@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apisauce": "^1.1.5",
     "express": "^4.17.2",
     "venom-bot": "^4.0.5"
   }
