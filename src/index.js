@@ -5,7 +5,27 @@ venom
   .create({
     session: 'session-name', //name of session
     multidevice: false, // for version not multidevice use false.(default: true)
-    args: ['--no-sandbox']
+    args: ['--disable-web-security',
+		'--no-sandbox',
+		'--disable-web-security',
+		'--aggressive-cache-discard',
+		'--disable-cache',
+		'--disable-application-cache',
+		'--disable-offline-load-stale-cache',
+		'--disk-cache-size=0',
+		'--disable-background-networking',
+		'--disable-default-apps',
+		'--disable-extensions',
+		'--disable-sync',
+		'--disable-translate',
+		'--hide-scrollbars',
+		'--metrics-recording-only',
+		'--mute-audio',
+		'--no-first-run',
+		'--safebrowsing-disable-auto-update',
+		'--ignore-certificate-errors',
+		'--ignore-ssl-errors',
+		'--ignore-certificate-errors-spki-list']
   })
   .then((client) => start(client))
   .catch((erro) => {
